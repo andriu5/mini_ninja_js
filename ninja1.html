@@ -7,13 +7,6 @@
 		var leftValue = 450, topValue = 100, direction = 'down', walkVal=1;
 
 		function update(){
-			if (walkVal == 1) {
-				walkVal = 2;
-			}
-			else {
-				walkVal = 1;
-			}
-
 			if (leftValue < 0) {
 				leftValue = 0;
 			}
@@ -28,26 +21,22 @@
 			}
 			document.getElementById("character").style.left = leftValue+"px";
 			document.getElementById("character").style.top = topValue+"px";
-			document.getElementById("character").style.backgroundImage = "url('img/"+direction+walkVal+".png')";
+			document.getElementById("character").style.backgroundImage = "url('img/down1.png')";
 		}
 		//document is a javascript object
 		document.onkeydown = function(e){
 			console.log(e);
 			if(e.keyCode == 37) { // LEFT
 				leftValue = leftValue - 10;
-				direction = 'left';
 			}
 			else if (e.keyCode == 39) { // RIGHT
 				leftValue = leftValue + 10;
-				direction = 'right';
 			}
 			else if (e.keyCode == 40) { // DOWN
 				topValue = topValue + 10;
-				direction = 'down';
 			}
 			else if (e.keyCode == 38) { // UP
 				topValue = topValue - 10;
-				direction = 'top';
 			}
 			// ...
 			update();
